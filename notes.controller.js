@@ -39,7 +39,6 @@ async function removeNote(noteId) {
 async function editNote(noteId, title) {
     const notes = await getNotes();
     const newNotes = notes.map((note) => note.id === noteId ? {...note, title: title} : note);
-    console.log("newNotes:", newNotes);
     await fs.writeFile(notesPath, JSON.stringify(newNotes));
     console.log(chalk.bgYellow(`Note with id: ${noteId} was update`));
 }
