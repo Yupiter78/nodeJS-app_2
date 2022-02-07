@@ -58,7 +58,7 @@ yargs.command({
         }
     },
     handler({ id, title }) {
-        editNote(id, title);
+        editNote({id, title});
     }
 });
 

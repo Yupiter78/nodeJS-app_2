@@ -36,11 +36,11 @@ async function removeNote(noteId) {
     console.log(chalk.bgRed(`Note with id:${noteId} was removed!`));
 }
 
-async function editNote(noteId, title) {
+async function editNote({id, title}) {
     const notes = await getNotes();
-    const newNotes = notes.map((note) => note.id === noteId ? {...note, title: title} : note);
+    const newNotes = notes.map((note) => note.id === id ? {...note, title: title} : note);
     await fs.writeFile(notesPath, JSON.stringify(newNotes));
-    console.log(chalk.bgYellow(`Note with id: ${noteId} was update`));
+    console.log(chalk.bgYellow(`Note with id: ${id} was update`));
 }
 
 module.exports = {
